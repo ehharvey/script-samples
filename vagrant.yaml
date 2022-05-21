@@ -1,0 +1,17 @@
+---
+os: any
+version: 2.2.19
+file_fragments:
+  - name: init
+    fragment: ""
+
+  - name: configure private networking
+    fragment: |
+       Vagrant.configure("2") do |config|
+       config.vm.network "private_network", type: "dhcp"
+       end
+
+  - name: forward port
+    fragment: 'config.vm.network "forwarded_port", guest: {{ guest_port }}, host: {{ host_port }}, host_ip: "{{ host_ip }}"'
+
+  - name: 
