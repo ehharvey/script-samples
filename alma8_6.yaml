@@ -8,7 +8,7 @@ tasks:
      version: 3.9
 
   - name: install git
-    command: sudo dnf install git
+    command: sudo dnf install git -y
     description: Install git
   
   - name: configure git user
