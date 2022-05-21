@@ -1,0 +1,27 @@
+---
+os: Alma Linux
+version: 8.6
+tasks:
+  -  name: install python 3
+     command: sudo dnf install python39 python39-wheel python39-setuptools python39-pip
+     description: Install Python 39
+     version: 3.9
+
+  - name: install git
+    command: sudo dnf install git
+    description: Install git
+  
+  - name: configure git user
+    command: "git config --global user.name {{ username }}"
+  
+  - name: configure git email
+    command: "git config --global user.email {{ email }}"
+
+  - name: install gh
+    command: 
+      sudo dnf install 'dnf-command(config-manager)'
+      sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+      sudo dnf install gh
+  
+  - name: gh auth login
+    command: "gh auth login --with-token {{ mytoken }}"
