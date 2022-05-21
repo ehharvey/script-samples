@@ -3,7 +3,7 @@ os: Alma Linux
 version: 8.6
 tasks:
   -  name: install python 3
-     command: sudo dnf install python39 python39-wheel python39-setuptools python39-pip
+     command: sudo dnf install python39 python39-wheel python39-setuptools python39-pip -y
      description: Install Python 39
      version: 3.9
 
